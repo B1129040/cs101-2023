@@ -17,10 +17,10 @@ void employee_info(employee_t my_emp){
 }
 int main(){
 	employee_t e;
-	e.em_id=123456;
-	strcpy(e.em_name,"Kathy");
-	e.em_age=20;
-	strcpy(e.em_phone,"456789");
+	e.em_id=12345;
+	strcpy(e.em_name,"Claire");
+	e.em_age=18;
+	strcpy(e.em_phone,"0912345678");
 	printf("%f",e.em_salary);
 	employee_info(e);
 	return 0;
