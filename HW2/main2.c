@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include <string.h>
 
-int main(){
-	FILE *main2, *self;
-	main2 = fopen("main2.txt","w");
-	self = fopen("main2.c","r");
-	char c[48];
-	int i=1;
-	while((fgets(c,sizeof(c),self)) != NULL){
-		fprintf(main2,"%02d %s",i++,c);
-		memset(c,0,sizeof(c));
-	}
-	return 0;
+int main()
+{
+    FILE *fp_in ,*fp_out;
+    char c;
+    fp_in = fopen("main2.c","r");
+    fp_out = fopen("main2.txt","w");
+    while ((c = fgetc(fp_in)) != EOF) {
+        fputc(c, fp_out);
+    }
+    fclose(fp_in);
+    fclose(fp_out);
+    return 0;
 }
