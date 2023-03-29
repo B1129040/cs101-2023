@@ -83,7 +83,6 @@ void printToFile(){
 	time_t t=time(0);
 	char *c=ctime(&t);
 	c[strlen(c)-1]=0;
-	// generate lotto[00001], lotto[00002], ... file
 	sprintf(lottoID,"lotto[%05d].txt",count);
 	lot = fopen(lottoID,"w+");
 	fprintf(lot,"========= lotto649 =========\n");
@@ -105,7 +104,6 @@ void readLottoTXT(){
 	FILE *read;
 	int i,j,flag=0;
 	char c[32];
-	//read one of lotto[00001], lotto[00002], ..., and get value into struct
 	read = fopen(lottoID,"r");
 	while(fgets(c,sizeof(c),read) != NULL){
 		if(flag==0){
@@ -155,7 +153,7 @@ void checkWinNum(){
 	int k=0;
 	record=fopen("record.bin","rb");
 	if(record == NULL){
-		printf("\n無人購買\n");
+		printf("無人購買\n");
 		return;
 	}
 	while(fread(&lrt1,sizeof(lotto_record_t),1,record) != 0){
