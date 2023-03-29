@@ -146,7 +146,6 @@ void readLottoTXT(){
 }
 void writeRecord(){
 	FILE *record;
-	//write the struct value into record.bin
 	record = fopen("record.bin","ab+");
 	fwrite(&lrt1,sizeof(lotto_record_t),1,record);
 	fclose(record);
@@ -154,7 +153,6 @@ void writeRecord(){
 void checkWinNum(){
 	FILE *record;
 	int k=0;
-	//find win number and print to terminal
 	record=fopen("record.bin","rb");
 	if(record == NULL){
 		printf("\n無人購買\n");
@@ -190,7 +188,6 @@ void checkWinNum(){
 }
 void readTruncation(){
 	FILE *tru;
-	//read a truncation to know the record of check win number
 	if((tru=fopen("truncation.bin","rb")) == NULL){
 		truncation=0;
 		return;
@@ -200,7 +197,6 @@ void readTruncation(){
 }
 void changeTruncation(){
 	FILE *tru;
-	//write down the truncation to remember the record of check win number
 	tru=fopen("truncation.bin","wb+");
 	fwrite(&lrt1.receipt_id,sizeof(int),1,tru);
 	fclose(tru);
